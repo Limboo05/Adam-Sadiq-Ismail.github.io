@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js ss-preload" lang="en">
+
 <head>
 
     <!--- basic page needs
@@ -24,6 +25,98 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
     <link rel="manifest" href="site.webmanifest">
+
+    <!-- Custom Light Mode Styles & Toggle Button Styles
+    ================================================== -->
+    <style>
+        /* Light Mode Defaults (Fallback) */
+        body.light-mode {
+            background-color: #f8f9fa;
+            color: #121212;
+        }
+
+        /* Light Mode Typography & Elements */
+        body.light-mode h1,
+        body.light-mode h2,
+        body.light-mode h3,
+        body.light-mode h4,
+        body.light-mode h5,
+        body.light-mode h6,
+        body.light-mode .text-pretitle,
+        body.light-mode .text-huge-title,
+        body.light-mode .timeline__title,
+        body.light-mode .timeline__meta {
+            color: #121212 !important;
+        }
+
+        body.light-mode p,
+        body.light-mode li,
+        body.light-mode span,
+        body.light-mode a,
+        body.light-mode .attention-getter {
+            color: #333333 !important;
+        }
+
+        body.light-mode .s-header {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        body.light-mode .main-nav a {
+            color: #121212 !important;
+        }
+
+        body.light-mode .s-about,
+        body.light-mode .s-works,
+        body.light-mode .s-contact {
+            background-color: #ffffff;
+            color: #121212;
+        }
+
+        body.light-mode .intro-social a {
+            color: #121212 !important;
+            border-color: #121212 !important;
+        }
+
+        body.light-mode .btn {
+            background-color: #121212 !important;
+            color: #ffffff !important;
+        }
+
+        body.light-mode .btn:hover {
+            background-color: #333333 !important;
+        }
+
+        /* Toggle Button Styling */
+        #toggleDark {
+            background: none;
+            border: 1px solid currentColor;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+            color: inherit;
+        }
+
+        #toggleDark:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        #toggleDark svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+    </style>
 
 </head>
 
@@ -69,7 +162,14 @@
                         <li><a href="#about" class="smoothscroll">About</a></li>
                         <li><a href="#works" class="smoothscroll">Works</a></li>
                         <li><a href="#contact" class="smoothscroll">Say Hello</a></li>
-                        <button id="toggleDark">🌙</button>
+                        <li>
+                            <button id="toggleDark" aria-label="Toggle Light/Dark Mode">
+                                <!-- Default Sun Icon for Dark Mode (Click to go Light) -->
+                                <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                                <!-- Moon Icon for Light Mode (Click to go Dark) -->
+                                <svg id="icon-moon" style="display:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            </button>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -95,9 +195,9 @@
 
                         <h1 class="text-huge-title">
                             I am Adam Sadiq Ismail, <br>
-                            a Frontend Engineer <br>
-                            Cyber Security Analyst <br> 
-                            Web Developer/Mobile App Developer<br>
+                            a Full Stack Developer <br>
+                            & Cybersecurity Specialist <br> 
+                            Securing architectures & building scalable applications.<br>
                             & Graphics Designer.
                         </h1>
                     </div>
@@ -137,11 +237,13 @@
                                 About
                             </h2>
                             <p class="attention-getter" data-animate-el>
-                                I’m an experienced Frontend Engineer with over 3 years of proven expertise in building fast, scalable, and interactive web applications using React, Next.js, Vanilla JavaScript, and TypeScript. I specialize in server-side rendering, static site generation, and cross-platform mobile development with Flutter and React Native.
+                                I’m an experienced Full Stack Developer and Cybersecurity Specialist with over 3 years of proven expertise in building fast, scalable, and interactive web applications using React, Next.js, Vanilla JavaScript, and TypeScript. I specialize in server-side rendering, static site generation, and cross-platform mobile development with Flutter and React Native.
 
-Backed by a degree in Cybersecurity from Bayero University, Kano, I bring a security-first mindset to frontend development—ensuring every interface I build is not only visually compelling but also secure, performant, and optimized for accessibility and SEO.
+Backed by a degree in Cybersecurity from Bayero University, Kano, I bring a security-first mindset to full stack development—ensuring every interface and backend architecture I build is not only visually compelling but also secure, performant, and optimized for accessibility and SEO.
 
-Over the years, I’ve mentored junior developers, led training sessions on web and mobile technologies, and contributed to both freelance and open-source projects. I thrive in collaborative, fast-paced environments and enjoy solving complex challenges through clean, efficient code and user-centered design.
+Detail-oriented and analytical, I have a strong foundation in threat detection, incident response, security monitoring, and secure system architecture. I am adept at applying industry frameworks including MITRE ATT&CK, NIST Incident Response Lifecycle, and OWASP Top 10 to identify, analyze, and mitigate security risks.
+
+Over the years, I’ve mentored junior developers, led training sessions on web, mobile, and cyber technologies, and contributed to both freelance and open-source projects. I thrive in collaborative, fast-paced environments and enjoy solving complex challenges through clean, efficient code and user-centered design.
 
 When I’m not coding, I explore emerging technologies, engage with developer communities, and create tools and content to help others grow in the tech space.
                             </p>
@@ -172,6 +274,15 @@ When I’m not coding, I explore emerging technologies, engage with developer co
             <li>PHP</li>
             <li>MySQL</li>
             <li>Python</li>
+            <li>Bash Scripting</li>
+
+            <!-- Cybersecurity & Infrastructure -->
+            <li>SIEM Monitoring</li>
+            <li>Threat Hunting</li>
+            <li>Incident Response</li>
+            <li>Penetration Testing</li>
+            <li>Cloud Security</li>
+            <li>MITRE ATT&CK</li>
 
             <!-- Tools & Others -->
             <li>Git</li>
@@ -179,7 +290,6 @@ When I’m not coding, I explore emerging technologies, engage with developer co
             <li>VS Code</li>
             <li>Postman</li>
             <li>Graphics Design</li>
-            <li>Penetration Testing</li>
         </ul>
 
     </div>
@@ -199,47 +309,76 @@ When I’m not coding, I explore emerging technologies, engage with developer co
                             <div class="timeline__block">
                                 <div class="timeline__bullet"></div>
                                 <div class="timeline__header">
-                                    <h4 class="timeline__title">Head Trainer – Passionview Solution Limited (2023–2024)</h3>
-                                    <h5 class="timeline__meta">Web Developer/Mobile App Developer</h5>
+                                    <h4 class="timeline__title">Security Analyst - Ready Up Project (UK)</h3>
+                                    <h5 class="timeline__meta">Cybersecurity Specialist & Gateway Security</h5>
+                                    <p class="timeline__timeframe">2024 - Present</p>
+                                </div>
+                                <div class="timeline__desc">
+                                    <ul>
+                                        <li>In charge of maintaining and securing the core gateway infrastructure for the Ready Up platform in the UK.</li>
+                                        <li>Monitor and analyze security alerts across network infrastructures and web applications using advanced SIEM platforms.</li>
+                                        <li>Perform incident triage, containment, isolation, and remediation activities for detected security anomalies.</li>
+                                        <li>Design, implement, and maintain secure infrastructure baselines across cloud and hybrid environments.</li>
+                                        <li>Draft and maintain security procedures, incident response playbooks, and operational documentation.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline__block">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Head Trainer – Passionview Solution Limited</h3>
+                                    <h5 class="timeline__meta">Full Stack Developer / Cybersecurity Trainer</h5>
                                     <p class="timeline__timeframe">August 2024 - Present</p>
                                 </div>
                                 <div class="timeline__desc">
                                     <ul>
                                     <li>Led training sessions in Web Development, Mobile App Development, and Data Analysis</li>
                                      <li>Built and maintained scalable web applications with React and Laravel.</li>
-                                      <li>Mentored corps members and tech interns in frontend technologies and responsive design..</li>
+                                      <li>Mentored corps members and tech interns in frontend technologies, responsive design, and cyber safety.</li>
                                     </ul>
                                     </div>
+                            </div>
 
-                                    
-
+                            <div class="timeline__block">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Cybersecurity Specialist & Systems Engineer</h4>
+                                    <h5 class="timeline__meta">LimboTech Solutions</h5>
+                                    <p class="timeline__timeframe">March 2024 - Present</p>
+                                </div>
+                                <div class="timeline__desc">
+                                    <ul>
+                                        <li>Conduct vulnerability assessments, patch management, and OS hardening activities.</li>
+                                        <li>Investigate unauthorized access attempts and potential compromise indicators.</li>
+                                        <li>Collaborate with development teams to address identified vulnerabilities and strengthen overall security posture.</li>
+                                    </ul>
+                                </div>
                             </div>
     
                             <div class="timeline__block">
                                 <div class="timeline__bullet"></div>
                                 <div class="timeline__header">
-                                    <h4 class="timeline__title">Frontend Developer,Graphics Designer, Data Analyst (freelance)</h4>
-                                    <h5 class="timeline__meta">Frontend Developer, Graphics Designer and Data Analyst</h5>
-                                    <p class="timeline__timeframe">(Freelance, 2022)</p>
+                                    <h4 class="timeline__title">Full Stack Developer, Graphics Designer, Data Analyst (freelance)</h4>
+                                    <h5 class="timeline__meta">Independent Tech Consultancies</h5>
+                                    <p class="timeline__timeframe">2022 - Present</p>
                                 </div>
                                 <div class="timeline__desc">
                                     <ul>
                                         <li>Developed and maintained client-facing applications using React, Next.js, and TypeScript.</li>
                                          <li>Published mobile apps using Flutter and React Native.</li>
                                         <li>Built and deployed software and mobile/web apps for final-year students across various universities in Nigeria.</li>
+                                        <li>Conducted security code reviews and vulnerability assessments for web applications.</li>
                                         <li>Worked at Cyber Spot and Global Tech Limited, where I improved and applied my graphics design skills.</li>
                                         <li>Served with the Nigerian Army HQ in Zamfara State, analyzing data of new recruits.</li>
-                                    
                                     </ul>
                                 </div>
-                               
                             </div>
                             
     
                         </div> <!-- end timeline -->
 
                     </div> <!-- end column -->
-                    
                     
 
                     <div class="column lg-6 tab-12">
@@ -276,6 +415,21 @@ When I’m not coding, I explore emerging technologies, engage with developer co
                                     <ul>
                                         <li> Learned penetration testing, ethical hacking tool, and cyber security fundamentals</li>
                                         <li>Explored real-world scenerio including reconnaissance, exploitation, and post-expliotation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline__block">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">CompTIA Security+ & CySA+</h4>
+                                    <h5 class="timeline__meta">CompTIA</h5>
+                                    <p class="timeline__timeframe"> 2024</p>
+                                </div>
+                                <div class="timeline__desc">
+                                    <ul>
+                                        <li> Core cybersecurity certifications validating foundational and analyst-level security skills.</li>
+                                        <li>Explored threat detection, incident response, and security monitoring concepts.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -434,6 +588,50 @@ When I’m not coding, I explore emerging technologies, engage with developer co
                                 </a>
                             </li> <!--end folio-list__item -->
 
+                            <!-- NEW PROJECT 1: SIEM Deployment -->
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-07">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/sanddunes.png" 
+                                             srcset="images/portfolio/sanddunes.png 1x, images/portfolio/sanddunes@2x.png 2x" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Cybersecurity Infrastructure
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            SIEM Deployment & Log Analysis
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://www.Github.com/Limboo05" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
+                            <!-- NEW PROJECT 2: Secure Web App Architecture -->
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-08">
+                                    <div class="folio-list__item-pic">
+                                        <img src="images/portfolio/lamp.jpeg" 
+                                             srcset="images/portfolio/lamp.jpeg 1x, images/portfolio/lamp@2x.jpeg 2x" alt="">
+                                    </div>
+                                    
+                                    <div class="folio-list__item-text">
+                                        <div class="folio-list__item-cat">
+                                            Security Architecture
+                                        </div>
+                                        <div class="folio-list__item-title">
+                                            Secure Web App Architecture
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://www.Github.com/Limboo05" title="project link">
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </li> <!--end folio-list__item -->
+
                         </ul> <!-- end folio-list -->
 
                     </div> <!-- end column -->
@@ -514,8 +712,7 @@ When I’m not coding, I explore emerging technologies, engage with developer co
                 
                             <div class="modal-popup__desc">
                                 <h5>Face Verification System</h5>
-                                <p>Face Recognition Web App with Machine Learning in Flask
-                                    .</p>
+                                <p>Face Recognition Web App with Machine Learning in Flask.</p>
                                 <ul class="modal-popup__cat">
                                     <li>Web Application</li>
                                 </ul>
@@ -531,10 +728,44 @@ When I’m not coding, I explore emerging technologies, engage with developer co
                 
                             <div class="modal-popup__desc">
                                 <h5>Bug Tracker</h5>
-                                <p>This is a bug tracker application that tracks bugs in a system and reporrs it to admin for overviewing</p>.</p>
+                                <p>This is a bug tracker application that tracks bugs in a system and reports it to admin for overviewing.</p>
                                 <ul class="modal-popup__cat">
                                     <li>Branding</li>
                                     <li>Product Design</li>
+                                </ul>
+                            </div>
+                
+                            <a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-07" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/gallery/g-sanddunes.png" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>SIEM Deployment & Log Analysis Sandbox</h5>
+                                <p>Architected and deployed a dedicated cybersecurity laboratory utilizing open-source SIEM technologies. Integrated Windows Event Logs and Linux Syslog data sources for centralized monitoring. Developed custom correlation rules to detect brute-force authentication attempts, privilege escalation activities, and lateral movement techniques. Mapped attack techniques against the MITRE ATT&CK framework and created incident response playbooks.</p>
+                                <ul class="modal-popup__cat">
+                                    <li>Cybersecurity Infrastructure</li>
+                                    <li>SIEM</li>
+                                </ul>
+                            </div>
+                
+                            <a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a>
+                        </div>
+                    </div> <!-- end modal -->
+
+                    <div id="modal-08" hidden>
+                        <div class="modal-popup">
+                            <img src="images/portfolio/gallery/g-lamp.jpeg" alt="">
+                
+                            <div class="modal-popup__desc">
+                                <h5>Secure Web Application Architecture</h5>
+                                <p>Designed and deployed secure web applications using modern security best practices. Implemented cryptographic protections for sensitive data handling, enforced secure authentication and session management controls, and performed manual threat modeling exercises to identify attack vectors. Implemented application-level security controls to address OWASP Top 10 risks.</p>
+                                <ul class="modal-popup__cat">
+                                    <li>Security Architecture</li>
+                                    <li>Full Stack Development</li>
                                 </ul>
                             </div>
                 
@@ -572,22 +803,22 @@ When I’m not coding, I explore emerging technologies, engage with developer co
                     <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
                         <h3 class="text-pretitle">Reach me at</h3>
                         <p class="contact-links">
-                            <a href="mailto:sayhello@luther.com" class="mailtoui">adamsadiq05@gmail.com</a> <br>
-                            <a href="tel:+1975432345">+234 8143 699 241</a>
+                            <a href="mailto:adamsadiq05@gmail.com" class="mailtoui">adamsadiq05@gmail.com</a> <br>
+                            <a href="tel:+2348143699241">+234 8143 699 241</a>
                         </p>
                     </div>
                     <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
                         <h3 class="text-pretitle">Social</h3>
                         <ul class="contact-social">
                             
-                            <li><a href="https://www.linkdln.com/in/adam-sadiq">Linkdln</a></li>
+                            <li><a href="https://www.linkedin.com/in/adam-ismail-aa63bb363">LinkedIn</a></li>
                             <li><a href="https://x.com/khalifahsadiq">X</a></li>
-                            <li><a href="https://www.intagram.com/sadiqadamismail">Instagram</a></li>
+                            <li><a href="https://www.instagram.com/sadiqadamismail">Instagram</a></li>
                             <li><a href="https://www.Github.com/Limboo05">Github</a></li>
                         </ul>
                     </div>
                     <div class="column lg-4 md-12 contact-block">
-                        <a href="mailto:sayhello@luther.com" class="mailtoui btn btn--medium u-fullwidth contact-btn">Say Hello.</a>
+                        <a href="mailto:adamsadiq05@gmail.com" class="mailtoui btn btn--medium u-fullwidth contact-btn">Say Hello.</a>
                     </div>
                 </div> <!-- end contact-bottom -->
 
@@ -623,5 +854,41 @@ When I’m not coding, I explore emerging technologies, engage with developer co
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
+    <!-- Theme Toggle Script
+    ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleDark');
+            const body = document.body;
+            const sunIcon = document.getElementById('icon-sun');
+            const moonIcon = document.getElementById('icon-moon');
+
+            // Check for saved user preference, if any, on load of the website
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'light') {
+                body.classList.add('light-mode');
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+
+            toggleBtn.addEventListener('click', function() {
+                // Toggle the light mode class
+                body.classList.toggle('light-mode');
+                
+                // Check if light mode is active to switch icons and save preference
+                if (body.classList.contains('light-mode')) {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>
