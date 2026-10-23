@@ -7,6 +7,13 @@
     <meta name="description" content="Adam Sadiq Ismail - Full Stack Developer, Cyber Security Analyst, and Frontend Engineer portfolio showcasing secure web applications, mobile apps, and security operations experience.">
     <meta name="author" content="Adam Sadiq Ismail">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0a192f">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Adam Sadiq Ismail | Full Stack Dev & Cyber Security Analyst">
+    <meta property="og:description" content="Secure web & mobile applications, SOC experience, and live production projects.">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/vendor.css">
@@ -17,9 +24,24 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
     <link rel="manifest" href="site.webmanifest">
+
+    <!-- Structured data (helps search engines understand the page) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Adam Sadiq Ismail",
+      "jobTitle": "Full Stack Developer & Cyber Security Analyst",
+      "alumniOf": "Bayero University Kano",
+      "sameAs": [
+        "https://github.com/Limboo05",
+        "https://www.linkedin.com/in/adam-ismail-aa63bb363",
+        "https://x.com/khalifahsadiq"
+      ]
+    }
+    </script>
 
     <style>
         /* Additional inline styles for light/dark smoothness and readability */
@@ -32,9 +54,9 @@
             background-color: #ffffff;
         }
         body.light-mode .text-huge-title,
-        body.light-mode h1, 
-        body.light-mode h2, 
-        body.light-mode h3, 
+        body.light-mode h1,
+        body.light-mode h2,
+        body.light-mode h3,
         body.light-mode p,
         body.light-mode .folio-list__item-title,
         body.light-mode .timeline__title {
@@ -80,12 +102,39 @@
             justify-content: center;
             transition: 0.2s;
         }
-        body.light-mode #toggleDark {
-            color: #0a2b44;
+        body.light-mode #toggleDark { color: #0a2b44; }
+        body.dark-mode #toggleDark { color: #ffd966; }
+        .main-nav ul li.theme-li { list-style: none; display: inline-block; }
+
+        /* Keyboard focus visibility (accessibility) */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #0077b6;
+            outline-offset: 3px;
         }
-        body.dark-mode #toggleDark {
-            color: #ffd966;
+
+        /* Placeholder background so project cards look fine until screenshots are added */
+        .folio-list__item-pic {
+            background: linear-gradient(135deg, #12304f, #0a192f);
+            min-height: 200px;
         }
+        .folio-list__item-pic img { display: block; width: 100%; height: auto; }
+
+        /* "Live" badge for deployed projects */
+        .live-badge {
+            display: inline-block;
+            font-size: 1.1rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .15rem .7rem;
+            border-radius: 99px;
+            background: rgba(0, 183, 120, .15);
+            color: #00b778;
+            margin-left: .8rem;
+            vertical-align: middle;
+        }
+
+        /* Tech stack tags inside project modals */
+        .stack-tags { margin-top: 1rem; font-size: 1.4rem; opacity: .85; }
     </style>
 </head>
 
@@ -113,14 +162,14 @@
             </div>
 
             <div class="row wide main-nav-wrap">
-                <nav class="column lg-12 main-nav">
+                <nav class="column lg-12 main-nav" aria-label="Main navigation">
                     <ul>
                         <li><a href="index.html" class="home-link">Adam Sadiq Ismail.</a></li>
                         <li class="current"><a href="#intro" class="smoothscroll">Intro</a></li>
                         <li><a href="#about" class="smoothscroll">About</a></li>
                         <li><a href="#works" class="smoothscroll">Works</a></li>
                         <li><a href="#contact" class="smoothscroll">Say Hello</a></li>
-                        <button id="toggleDark" aria-label="Toggle Light/Dark Mode"><i class="bi bi-moon-fill"></i></button>
+                        <li class="theme-li"><button id="toggleDark" aria-label="Toggle Light/Dark Mode"><i class="bi bi-moon-fill"></i></button></li>
                     </ul>
                 </nav>
             </div>
@@ -138,29 +187,28 @@
                         <h1 class="text-huge-title">
                             I am Adam Sadiq Ismail, <br>
                             a Full Stack Developer <br>
-                            Cyber Security Analyst <br> 
+                            Cyber Security Analyst <br>
                             Web/Mobile Developer<br>
-                            
                         </h1>
                     </div>
 
                     <ul class="intro-social">
-                        <li><a href="https://wa.me/2348143699241">Whatsapp</a></li>
-                        <li><a href="https://x.com/khalifahsadiq">X</a></li>
-                        <li><a href="https://github.com/Limboo05">Github</a></li>
-                        <li><a href="https://www.instagram.com/sadiqadamismail">Instagram</a></li>
+                        <li><a href="https://wa.me/2348143699241" target="_blank" rel="noopener">Whatsapp</a></li>
+                        <li><a href="https://x.com/khalifahsadiq" target="_blank" rel="noopener">X</a></li>
+                        <li><a href="https://github.com/Limboo05" target="_blank" rel="noopener">Github</a></li>
+                        <li><a href="https://www.instagram.com/sadiqadamismail" target="_blank" rel="noopener">Instagram</a></li>
                     </ul>
                 </div>
-                <a href="#about" class="intro-scrolldown smoothscroll">
+                <a href="#about" class="intro-scrolldown smoothscroll" aria-label="Scroll to About section">
                     <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"/></svg>
                 </a>
             </section>
 
-            <!-- About Section (Cybersecurity and full-stack roles merged) -->
+            <!-- About Section -->
             <section id="about" class="s-about target-section">
                 <div class="row about-info wide" data-animate-block>
                     <div class="column lg-6 md-12 about-info__pic-block">
-                        <img src="images/about-photo.jpg" 
+                        <img src="images/about-photo.jpg"
                              srcset="images/about-photo.jpg 1x, images/about-photo@3x.jpg 2x" alt="Adam Sadiq Ismail" class="about-info__pic" data-animate-el>
                     </div>
                     <div class="column lg-6 md-12">
@@ -168,7 +216,7 @@
                             <h2 class="text-pretitle with-line" data-animate-el>About</h2>
                             <p class="attention-getter" data-animate-el>
                                 I’m an experienced Full Stack Engineer & Cyber Security Analyst with over 3 years of proven expertise in building fast, scalable, and secure web/mobile applications using React, Next.js, TypeScript, Flutter, and Laravel. I specialize in server-side rendering, cross-platform mobile development, and most importantly — secure architecture with a defense-in-depth mindset. <br><br>
-                                Backed by a degree in Cybersecurity from Bayero University, Kano, and advanced SOC training (CompTIA Security+, CySA+, BTL1), I’ve actively worked as a **Security Analyst for ReadyUp Platform (UK)** where I maintain gateway security, monitor threat intelligence, and harden infrastructure. My security-first approach ensures every interface and backend I build is resilient against OWASP Top 10 threats, secured by robust authentication, and optimized for performance.<br><br>
+                                Backed by a degree in Cybersecurity from Bayero University, Kano, and advanced SOC training (CompTIA Security+, CySA+, BTL1), I’ve actively worked as a <strong>Security Analyst for ReadyUp Platform (UK)</strong> where I maintain gateway security, monitor threat intelligence, and harden infrastructure. My security-first approach ensures every interface and backend I build is resilient against OWASP Top 10 threats, secured by robust authentication, and optimized for performance.<br><br>
                                 Additionally, I’ve mentored junior developers, led cybersecurity training with NYSC, and contributed to freelance & open-source security tools. When I'm not coding or defending networks, I explore emerging cyber threats, engage with developer communities, and design graphics that blend creativity with tech.
                             </p>
                             <a href="Adam Sadiq Ismail cyber.pdf" class="btn btn--medium u-fullwidth" data-animate-el>Download CV</a>
@@ -176,7 +224,7 @@
                     </div>
                 </div>
 
-                <!-- Expertise Section updated with full stack & security skills -->
+                <!-- Expertise -->
                 <div class="row about-expertise" data-animate-block>
                     <div class="column lg-12">
                         <h2 class="text-pretitle" data-animate-el>Expertise</h2>
@@ -201,7 +249,6 @@
                     <div class="column lg-6 tab-12">
                         <h2 class="text-pretitle" data-animate-el>Experience</h2>
                         <div class="timeline" data-animate-el>
-                            <!-- Additional Security Analyst Role: ReadyUp Platform (UK) -->
                             <div class="timeline__block">
                                 <div class="timeline__bullet"></div>
                                 <div class="timeline__header">
@@ -222,9 +269,9 @@
                             <div class="timeline__block">
                                 <div class="timeline__bullet"></div>
                                 <div class="timeline__header">
-                                    <h4 class="timeline__title">Head Trainer – Passionview Solution Limited (2023–2024)</h4>
+                                    <h4 class="timeline__title">Head Trainer – Passionview Solution Limited</h4>
                                     <h5 class="timeline__meta">Full Stack & Mobile Development Lead</h5>
-                                    <p class="timeline__timeframe">August 2023 - Present</p>
+                                    <p class="timeline__timeframe">August 2023 – Present</p>
                                 </div>
                                 <div class="timeline__desc">
                                     <ul>
@@ -250,7 +297,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            
+
                             <div class="timeline__block">
                                 <div class="timeline__bullet"></div>
                                 <div class="timeline__header">
@@ -310,50 +357,86 @@
                 </div>
             </section>
 
-            <!-- Works Section (unchanged but present) -->
+            <!-- Works Section -->
             <section id="works" class="s-works target-section">
                 <div class="row works-portfolio">
                     <div class="column lg-12" data-animate-block>
                         <h2 class="text-pretitle" data-animate-el>Recent Works</h2>
                         <p class="h1" data-animate-el>Here are some of my favorite projects I have done lately. Feel free to check them out.</p>
                         <ul class="folio-list row block-lg-one-half block-stack-on-1000">
+
+                            <!-- ===== NEW: LIVE PRODUCTION PROJECTS ===== -->
+                            <!-- Add screenshots at: images/portfolio/readyup.png (+ readyup@2x.png), ihifix.png (+ @2x), talentsphere.png (+ @2x)
+                                 and the larger versions in images/portfolio/gallery/g-readyup.png, g-ihifix.png, g-talentsphere.png -->
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-07">
+                                    <div class="folio-list__item-pic"><img src="images/portfolio/readyup.png" srcset="images/portfolio/readyup.png 1x, images/portfolio/readyup@2x.png 2x" alt="ReadyUp sports venue booking platform" loading="lazy"></div>
+                                    <div class="folio-list__item-text"><div class="folio-list__item-cat">Web Platform · Live</div><div class="folio-list__item-title">ReadyUp</div></div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://readyup.io/" target="_blank" rel="noopener" aria-label="Visit ReadyUp live site"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                            </li>
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-08">
+                                    <div class="folio-list__item-pic"><img src="images/portfolio/ihifix.png" srcset="images/portfolio/ihifix.png 1x, images/portfolio/ihifix@2x.png 2x" alt="Ihifix Group corporate website" loading="lazy"></div>
+                                    <div class="folio-list__item-text"><div class="folio-list__item-cat">Corporate Website · Live</div><div class="folio-list__item-title">Ihifix Group</div></div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://ihifix.com/" target="_blank" rel="noopener" aria-label="Visit Ihifix live site"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                            </li>
+                            <li class="folio-list__item column" data-animate-el>
+                                <a class="folio-list__item-link" href="#modal-09">
+                                    <div class="folio-list__item-pic"><img src="images/portfolio/talentsphere.png" srcset="images/portfolio/talentsphere.png 1x, images/portfolio/talentsphere@2x.png 2x" alt="Talent Sphere Africa talent booking marketplace" loading="lazy"></div>
+                                    <div class="folio-list__item-text"><div class="folio-list__item-cat">Web Platform · Live</div><div class="folio-list__item-title">Talent Sphere Africa</div></div>
+                                </a>
+                                <a class="folio-list__proj-link" href="https://talentsphereafrica.com/" target="_blank" rel="noopener" aria-label="Visit Talent Sphere Africa live site"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                            </li>
+
+                            <!-- ===== EXISTING PROJECTS ===== -->
                             <li class="folio-list__item column" data-animate-el>
                                 <a class="folio-list__item-link" href="#modal-01">
-                                    <div class="folio-list__item-pic"><img src="images/portfolio/fuji.png" srcset="images/portfolio/fuji.png 1x, images/portfolio/fuji@2x.png 2x" alt="Smart Bank"></div>
+                                    <div class="folio-list__item-pic"><img src="images/portfolio/fuji.png" srcset="images/portfolio/fuji.png 1x, images/portfolio/fuji@2x.png 2x" alt="Smart Bank" loading="lazy"></div>
                                     <div class="folio-list__item-text"><div class="folio-list__item-cat">Mobile Application</div><div class="folio-list__item-title">Smart Bank Main</div></div>
                                 </a>
-                                <a class="folio-list__proj-link" href="#"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                                <a class="folio-list__proj-link" href="https://www.github.com/Limboo05/Smartbank.com" target="_blank" rel="noopener" aria-label="View Smart Bank project"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
                             </li>
                             <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-02"><div class="folio-list__item-pic"><img src="images/portfolio/lamp.jpeg" srcset="images/portfolio/lamp.jpeg 1x, images/portfolio/lamp@2x.jpeg 2x" alt="Phone Case Maker"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Web Application</div><div class="folio-list__item-title">Phone Case Maker App.</div></div></a>
-                                <a class="folio-list__proj-link" href="#"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                                <a class="folio-list__item-link" href="#modal-02"><div class="folio-list__item-pic"><img src="images/portfolio/lamp.jpeg" srcset="images/portfolio/lamp.jpeg 1x, images/portfolio/lamp@2x.jpeg 2x" alt="Phone Case Maker" loading="lazy"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Web Application</div><div class="folio-list__item-title">Phone Case Maker App.</div></div></a>
+                                <a class="folio-list__proj-link" href="https://www.Github.com/Limboo05" target="_blank" rel="noopener" aria-label="View Phone Case Maker project"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
                             </li>
                             <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-03"><div class="folio-list__item-pic"><img src="images/portfolio/rucksack.png" srcset="images/portfolio/rucksack.png 1x, images/portfolio/rucksack@2x.png 2x" alt="Sneaker App"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Mobile Application</div><div class="folio-list__item-title">Sneaker App</div></div></a>
-                                <a class="folio-list__proj-link" href="#"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                                <a class="folio-list__item-link" href="#modal-03"><div class="folio-list__item-pic"><img src="images/portfolio/rucksack.png" srcset="images/portfolio/rucksack.png 1x, images/portfolio/rucksack@2x.png 2x" alt="Sneaker App" loading="lazy"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Mobile Application</div><div class="folio-list__item-title">Sneaker App</div></div></a>
+                                <a class="folio-list__proj-link" href="https://www.Github.com/Limboo05" target="_blank" rel="noopener" aria-label="View Sneaker App project"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
                             </li>
                             <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-04"><div class="folio-list__item-pic"><img src="images/portfolio/skaterboy.jpg" srcset="images/portfolio/skaterboy.jpg 1x, images/portfolio/skaterboy@2x.jpg 2x" alt="E-Commerce"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Website</div><div class="folio-list__item-title">E-Commerce</div></div></a>
-                                <a class="folio-list__proj-link" href="#"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                                <a class="folio-list__item-link" href="#modal-04"><div class="folio-list__item-pic"><img src="images/portfolio/skaterboy.jpg" srcset="images/portfolio/skaterboy.jpg 1x, images/portfolio/skaterboy@2x.jpg 2x" alt="E-Commerce" loading="lazy"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Website</div><div class="folio-list__item-title">E-Commerce</div></div></a>
+                                <a class="folio-list__proj-link" href="https://www.Github.com/Limboo05" target="_blank" rel="noopener" aria-label="View E-Commerce project"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
                             </li>
                             <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-05"><div class="folio-list__item-pic"><img src="images/portfolio/sanddunes.png" srcset="images/portfolio/sanddunes.png 1x, images/portfolio/sanddunes@2x.png 2x" alt="Face Verification"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Web Application</div><div class="folio-list__item-title">Face Verification System</div></div></a>
-                                <a class="folio-list__proj-link" href="#"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                                <a class="folio-list__item-link" href="#modal-05"><div class="folio-list__item-pic"><img src="images/portfolio/sanddunes.png" srcset="images/portfolio/sanddunes.png 1x, images/portfolio/sanddunes@2x.png 2x" alt="Face Verification" loading="lazy"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Web Application</div><div class="folio-list__item-title">Face Verification System</div></div></a>
+                                <a class="folio-list__proj-link" href="https://www.Github.com/Limboo05" target="_blank" rel="noopener" aria-label="View Face Verification project"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
                             </li>
                             <li class="folio-list__item column" data-animate-el>
-                                <a class="folio-list__item-link" href="#modal-06"><div class="folio-list__item-pic"><img src="images/portfolio/minimalismo.png" srcset="images/portfolio/minimalismo.png 1x, images/portfolio/minimalismo@2x.png 2x" alt="Bug Tracker"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Web Application</div><div class="folio-list__item-title">Bug Tracker</div></div></a>
-                                <a class="folio-list__proj-link" href="https://www.Github.com/Limboo05"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
+                                <a class="folio-list__item-link" href="#modal-06"><div class="folio-list__item-pic"><img src="images/portfolio/minimalismo.png" srcset="images/portfolio/minimalismo.png 1x, images/portfolio/minimalismo@2x.png 2x" alt="Bug Tracker" loading="lazy"></div><div class="folio-list__item-text"><div class="folio-list__item-cat">Web Application</div><div class="folio-list__item-title">Bug Tracker</div></div></a>
+                                <a class="folio-list__proj-link" href="https://www.Github.com/Limboo05" target="_blank" rel="noopener" aria-label="View Bug Tracker project"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- Modals (unchanged) -->
-                <div id="modal-01" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-fuji.png" alt=""><div class="modal-popup__desc"><h5>Smart Bank</h5><p>Demo banking app with React Native, Supabase, and secure auth.</p><ul class="modal-popup__cat"><li>Mobile Application</li></ul></div><a href="https://www.github.com/Limboo05/Smartbank.com" class="modal-popup__details">Project link</a></div></div>
-                <div id="modal-02" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-lamp.jpeg" alt=""><div class="modal-popup__desc"><h5>Phone Case Maker</h5><p>Customizer interface with stickers, fonts, and export.</p><ul class="modal-popup__cat"><li>Web Application</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
-                <div id="modal-03" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-rucksack.png" alt=""><div class="modal-popup__desc"><h5>Sneakers shop App</h5><p>Flutter eCommerce with animations.</p><ul class="modal-popup__cat"><li>Mobile Application</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
-                <div id="modal-04" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-skaterboy.jpg" alt=""><div class="modal-popup__desc"><h5>E-Commerce</h5><p>PHP MySQL store with payment integration.</p><ul class="modal-popup__cat"><li>Website</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
-                <div id="modal-05" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-sanddunes.png" alt=""><div class="modal-popup__desc"><h5>Face Verification System</h5><p>Flask ML-based facial recognition.</p><ul class="modal-popup__cat"><li>Web Application</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
-                <div id="modal-06" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-minimalismo.png" alt=""><div class="modal-popup__desc"><h5>Bug Tracker</h5><p>Issue tracking system with admin oversight.</p><ul class="modal-popup__cat"><li>Branding</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
+
+                <!-- ===== NEW MODALS ===== -->
+                <!-- TODO: edit "My role" lines so they describe exactly what YOU did on each project -->
+                <div id="modal-07" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-readyup.png" alt="ReadyUp screenshot"><div class="modal-popup__desc"><h5>ReadyUp <span class="live-badge">Live</span></h5><p>UK sports venue booking platform for football, tennis, padel and basketball. Players browse live availability, reserve pitches and courts, and join or host games. My role: security (gateway and API hardening, monitoring, incident response) and engineering support.</p><ul class="modal-popup__cat"><li>Web Platform</li><li>Security</li></ul><p class="stack-tags">Next.js · API security · SIEM monitoring · Payment gateway protection</p></div><a href="https://readyup.io/" target="_blank" rel="noopener" class="modal-popup__details">Visit live site</a></div></div>
+
+                <div id="modal-08" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-ihifix.png" alt="Ihifix Group screenshot"><div class="modal-popup__desc"><h5>Ihifix Group <span class="live-badge">Live</span></h5><p>Corporate website for a Kaduna-based organisation spanning technology consultancy, a digital academy, an international school and a foundation. Presents services, measured impact, partners and leadership, with a contact form for partnership enquiries. My role: design and development.</p><ul class="modal-popup__cat"><li>Corporate Website</li></ul><p class="stack-tags">Responsive UI · Contact form · Performance &amp; SEO</p></div><a href="https://ihifix.com/" target="_blank" rel="noopener" class="modal-popup__details">Visit live site</a></div></div>
+
+                <div id="modal-09" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-talentsphere.png" alt="Talent Sphere Africa screenshot"><div class="modal-popup__desc"><h5>Talent Sphere Africa <span class="live-badge">Live</span></h5><p>Marketplace connecting clients with Nigerian and African actors, models, dancers, voice-over artists and film crew. Features category search, talent profiles, job listings, tiered plans, sign-up and login, and booking and project management dashboards. My role: development.</p><ul class="modal-popup__cat"><li>Web Platform</li><li>Marketplace</li></ul><p class="stack-tags">Next.js · Authentication · Search &amp; filtering · Dashboards</p></div><a href="https://talentsphereafrica.com/" target="_blank" rel="noopener" class="modal-popup__details">Visit live site</a></div></div>
+
+                <!-- ===== EXISTING MODALS ===== -->
+                <div id="modal-01" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-fuji.png" alt="Smart Bank screenshot"><div class="modal-popup__desc"><h5>Smart Bank</h5><p>Demo banking app with React Native, Supabase, and secure auth.</p><ul class="modal-popup__cat"><li>Mobile Application</li></ul></div><a href="https://www.github.com/Limboo05/Smartbank.com" class="modal-popup__details">Project link</a></div></div>
+                <div id="modal-02" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-lamp.jpeg" alt="Phone Case Maker screenshot"><div class="modal-popup__desc"><h5>Phone Case Maker</h5><p>Customizer interface with stickers, fonts, and export.</p><ul class="modal-popup__cat"><li>Web Application</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
+                <div id="modal-03" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-rucksack.png" alt="Sneaker App screenshot"><div class="modal-popup__desc"><h5>Sneakers shop App</h5><p>Flutter eCommerce with animations.</p><ul class="modal-popup__cat"><li>Mobile Application</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
+                <div id="modal-04" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-skaterboy.jpg" alt="E-Commerce screenshot"><div class="modal-popup__desc"><h5>E-Commerce</h5><p>PHP MySQL store with payment integration.</p><ul class="modal-popup__cat"><li>Website</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
+                <div id="modal-05" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-sanddunes.png" alt="Face Verification screenshot"><div class="modal-popup__desc"><h5>Face Verification System</h5><p>Flask ML-based facial recognition.</p><ul class="modal-popup__cat"><li>Web Application</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
+                <div id="modal-06" hidden><div class="modal-popup"><img src="images/portfolio/gallery/g-minimalismo.png" alt="Bug Tracker screenshot"><div class="modal-popup__desc"><h5>Bug Tracker</h5><p>Issue tracking system with admin oversight.</p><ul class="modal-popup__cat"><li>Web Application</li></ul></div><a href="https://www.Github.com/Limboo05" class="modal-popup__details">Project link</a></div></div>
             </section>
 
             <!-- Contact Section -->
@@ -372,10 +455,10 @@
                     <div class="column lg-4 md-5 tab-6 stack-on-550 contact-block">
                         <h3 class="text-pretitle">Social</h3>
                         <ul class="contact-social">
-                            <li><a href="https://www.linkedin.com/in/adam-ismail-aa63bb363">LinkedIn</a></li>
-                            <li><a href="https://x.com/khalifahsadiq">X</a></li>
-                            <li><a href="https://www.instagram.com/sadiqadamismail">Instagram</a></li>
-                            <li><a href="https://www.Github.com/Limboo05">Github</a></li>
+                            <li><a href="https://www.linkedin.com/in/adam-ismail-aa63bb363" target="_blank" rel="noopener">LinkedIn</a></li>
+                            <li><a href="https://x.com/khalifahsadiq" target="_blank" rel="noopener">X</a></li>
+                            <li><a href="https://www.instagram.com/sadiqadamismail" target="_blank" rel="noopener">Instagram</a></li>
+                            <li><a href="https://www.Github.com/Limboo05" target="_blank" rel="noopener">Github</a></li>
                         </ul>
                     </div>
                     <div class="column lg-4 md-12 contact-block">
@@ -388,11 +471,11 @@
         <footer class="s-footer">
             <div class="row">
                 <div class="column ss-copyright">
-                    <span>© Copyright Adam Sadiq 2025</span> 
+                    <span>© Copyright Adam Sadiq <span id="year">2026</span></span>
                     <span>Design by <a href="#">Limbo Tech and Design</a> Distribution By Limbo Tech</span>
                 </div>
                 <div class="ss-go-top">
-                    <a class="smoothscroll" title="Back to Top" href="#top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"/></svg></a>
+                    <a class="smoothscroll" title="Back to Top" aria-label="Back to top" href="#top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd"><path d="M11 2.206l-6.235 7.528-.765-.645 7.521-9 7.479 9-.764.646-6.236-7.53v21.884h-1v-21.883z"/></svg></a>
                 </div>
             </div>
         </footer>
@@ -401,41 +484,41 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Light/Dark mode toggle with Bootstrap Icons and local storage, preserving readability.
+        // Light/Dark mode toggle. Respects saved choice, then the visitor's system preference.
         (function() {
             const toggleBtn = document.getElementById('toggleDark');
             const body = document.body;
             const icon = toggleBtn.querySelector('i');
-            function setTheme(theme) {
-                if (theme === 'light') {
-                    body.classList.add('light-mode');
-                    body.classList.remove('dark-mode');
-                    if (icon) {
-                        icon.className = 'bi bi-sun-fill';
-                    }
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    body.classList.add('dark-mode');
-                    body.classList.remove('light-mode');
-                    if (icon) {
-                        icon.className = 'bi bi-moon-fill';
-                    }
-                    localStorage.setItem('theme', 'dark');
-                }
+
+            function save(theme) {
+                try { localStorage.setItem('theme', theme); } catch (e) {}
             }
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'light') {
-                setTheme('light');
+            function load() {
+                try { return localStorage.getItem('theme'); } catch (e) { return null; }
+            }
+            function setTheme(theme) {
+                const light = theme === 'light';
+                body.classList.toggle('light-mode', light);
+                body.classList.toggle('dark-mode', !light);
+                if (icon) icon.className = light ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+                save(theme);
+            }
+
+            const saved = load();
+            if (saved) {
+                setTheme(saved);
             } else {
+                // Default to dark (site's original look)
                 setTheme('dark');
             }
+
             toggleBtn.addEventListener('click', () => {
-                if (body.classList.contains('light-mode')) {
-                    setTheme('dark');
-                } else {
-                    setTheme('light');
-                }
+                setTheme(body.classList.contains('light-mode') ? 'dark' : 'light');
             });
+
+            // Keep the footer year current
+            const y = document.getElementById('year');
+            if (y) y.textContent = new Date().getFullYear();
         })();
     </script>
 </body>
